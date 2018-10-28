@@ -34,21 +34,21 @@ namespace ID3
         private double calcularEntropia(int altos, int baixos, int moderados)
         {
             int total = altos + baixos + moderados;
-            double proporcaoPositiva = (double)altos / total;
-            double proporcaoNegativa = (double)baixos / total;
+            double proporcaoAlta = (double)altos / total;
+            double proporcaoBaixa = (double)baixos / total;
             double proporcaoModerada = (double)moderados / total;
 
 
-            if (proporcaoPositiva != 0)
-                proporcaoPositiva = -(proporcaoPositiva) * Math.Log(proporcaoPositiva, 2);
+            if (proporcaoAlta != 0)
+                proporcaoAlta = -(proporcaoAlta) * Math.Log(proporcaoAlta, 2);
 
-            if (proporcaoNegativa != 0)
-                proporcaoNegativa = -(proporcaoNegativa) * Math.Log(proporcaoNegativa, 2);
+            if (proporcaoBaixa != 0)
+                proporcaoBaixa = -(proporcaoBaixa) * Math.Log(proporcaoBaixa, 2);
 
             if (proporcaoModerada != 0)
                 proporcaoModerada = -(proporcaoModerada) * Math.Log(proporcaoModerada, 2);
 
-            return proporcaoPositiva + proporcaoNegativa + proporcaoModerada;
+            return proporcaoAlta + proporcaoBaixa + proporcaoModerada;
         }
 
 
@@ -63,17 +63,11 @@ namespace ID3
                 if ((string)row[atributo.Nome] == rotulo)
                 {
                     if ((string)row[RotuloAtributo] == "alto")
-                    {
-                        altos++;
-                    }
+                       altos++;
                     else if ((string)row[RotuloAtributo] == "baixo")
-                    {
                         baixos++;
-                    }
                     else if ((string)row[RotuloAtributo] == "moderado")
-                    {
                         moderados++;
-                    }
                 }
             }
 

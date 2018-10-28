@@ -25,6 +25,10 @@ namespace ID3
 
                 }
             }
+            else
+            {
+                Console.WriteLine(tabs + "\t" + "[" + raiz.Atributo.Rotulo + "]");
+            }
         }
 
 

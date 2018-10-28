@@ -17,7 +17,8 @@ namespace ID3
                 Filhos = new ArrayList(atributo.Valores.Count);
                 for (int i = 0; i < atributo.Valores.Count; i++)
                     Filhos.Add(null);
-            } else
+            }
+            else
             {
                 Filhos = new ArrayList(1);
                 Filhos.Add(null);

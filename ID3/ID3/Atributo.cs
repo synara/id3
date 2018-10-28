@@ -1,7 +1,7 @@
 ﻿
 using System.Collections;
 using System.Collections.Generic;
-
+using System.Data;
 
 namespace ID3
 {
@@ -9,8 +9,7 @@ namespace ID3
     {
         public ArrayList Valores { get; set; }
         public string Nome { get; set; }
-        public object Rotulo { get; set; }
-        public bool Iguais { get; set; }
+        public string Rotulo { get; set; }
 
         public Atributo(string nome, ArrayList valores)
         {
@@ -21,20 +20,10 @@ namespace ID3
 
         public Atributo(object rotulo)
         {
-            this.Rotulo = rotulo;
+            var rtl = (DataRow)rotulo;
+            this.Rotulo = rtl.ItemArray[0].ToString();
             this.Nome = null;
             this.Valores = null;
-        }
-
-        public Atributo(string rotulo, bool valor)
-        {
-            this.Rotulo = rotulo;
-            this.Iguais = valor;
-        }
-
-        public Atributo()
-        {
-
         }
 
 
